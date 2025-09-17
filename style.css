@@ -1,0 +1,86 @@
+/* Global styles (split from inline for maintainability) */
+:root{
+  --bg:#f9fafc;
+  --card:#ffffff;
+  --text:#0f1724;
+  --muted:#6b7280;
+  --accent:#0077b6;
+  --accent-2:#00b4d8;
+  --soft:#e0f7fa;
+  --radius:12px;
+  --maxwidth:1200px;
+  font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;animation:fadeBg 12s infinite alternate}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+header{background:#fff;box-shadow:0 6px 24px rgba(16,24,40,0.06);position:sticky;top:0;z-index:1000;animation:slideDown 1s ease}
+.nav-wrap{max-width:var(--maxwidth);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center}
+.brand h1{font-size:1.15rem;font-weight:700;color:var(--text);letter-spacing:0.2px}
+.brand p{font-size:0.78rem;color:var(--muted)}
+
+nav{display:flex;gap:14px;align-items:center}
+nav a{padding:0.55rem 0.9rem;border-radius:8px;color:var(--muted);font-weight:600;transition:all .22s}
+nav a:hover{color:var(--accent);background:var(--soft)}
+.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:0.6rem 1rem;border-radius:10px;transition:transform .2s}
+.primary:hover{transform:scale(1.05)}
+
+.container{max-width:var(--maxwidth);margin:auto;padding:2rem}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 480px;gap:2rem;align-items:center;margin-top:18px}
+.hero-card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 8px 30px rgba(16,24,40,0.06);border:1px solid rgba(16,24,40,0.03);transition:transform .3s}
+.hero-card:hover{transform:translateY(-6px)}
+.hero h2{font-size:2rem;margin-bottom:10px;animation:fadeIn 1s ease}
+.lead{color:var(--muted);margin-bottom:18px}
+.cta{display:flex;gap:12px}
+.btn{padding:12px 18px;border-radius:10px;font-weight:700;border:0;cursor:pointer;transition:all .25s ease}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+.btn-primary:hover{opacity:0.9;transform:scale(1.05)}
+.btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.1);color:var(--text)}
+.btn-ghost:hover{background:var(--soft)}
+
+.hero-stats{display:flex;gap:12px;margin-top:18px}
+.stat{background:var(--soft);padding:12px;border-radius:10px;text-align:center;min-width:110px}
+.stat strong{display:block;font-size:18px;color:var(--accent-2)}
+
+/* Sections */
+section{margin-top:28px}
+.section-card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(16,24,40,0.03);box-shadow:0 6px 20px rgba(16,24,40,0.03);transition:transform .3s}
+.section-card:hover{transform:translateY(-4px)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.feature{padding:16px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#f0fbff);border:1px solid rgba(16,24,40,0.03)}
+.feature h4{margin-bottom:8px}
+.muted{color:var(--muted)}
+
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.testi{padding:16px;border-radius:10px;background:#fff;border:1px solid rgba(16,24,40,0.03)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+input,textarea,select{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(16,24,40,0.06);background:transparent}
+textarea{min-height:130px}
+.contact-info .chip{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:var(--soft)}
+
+/* Footer */
+footer{margin-top:30px;padding:28px 0;color:var(--muted);text-align:center}
+
+/* Responsive */
+@media (max-width:1100px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.testimonials{grid-template-columns:1fr}}
+@media (max-width:640px){.grid-3{grid-template-columns:1fr}.container{padding:1rem}.nav-wrap{padding:0.6rem 1rem}}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeBg{0%{background:#f9fafc}100%{background:#f0f9ff}}
+@keyframes slideDown{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+.fade-up{animation:fadeUp .8s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
